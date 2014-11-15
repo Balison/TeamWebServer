@@ -1,11 +1,13 @@
 package webserver;
 
+import http.responses.HttpResponse;
+import java.io.File;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -38,32 +40,32 @@ public class WebServerTest {
     @Test
     public void testRequestGET_OK() {
         WebServer server = new WebServer();
-        int requestResponse = server.request("GET", "/", "http/1.0").getStatusCode();
-        int expectedResponse = 200;
+        HttpResponse requestResponse = server.request("GET", "/", "http/1.0");
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", new File("/index.html"), 200);
         assertEquals(expectedResponse, requestResponse);
     }
     
     @Test
     public void testRequestHEAD_OK(){
         WebServer server = new WebServer();
-        int requestResponse = server.request("HEAD", "/", "http/1.0").getStatusCode();
-        int expectedResponse = 200;
+        HttpResponse requestResponse = server.request("HEAD", "/", "http/1.0");
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", new File("/index.html"), 200);
         assertEquals(expectedResponse, requestResponse);
     }
     
     @Test
     public void testRequestHEAD_NOT_FOUND(){
         WebServer server = new WebServer();
-        int requestResponse = server.request("HEAD", "/as.html", "http/1.0").getStatusCode();
-        int expectedResponse = 404;
+        HttpResponse requestResponse = server.request("HEAD", "/as.html", "http/1.0");
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", 404);
         assertEquals(expectedResponse, requestResponse);
     }
     
     @Test
     public void testRequestGET_NOT_FOUND(){
         WebServer server = new WebServer();
-        int requestResponse = server.request("GET", "/as.html", "http/1.0").getStatusCode();
-        int expectedResponse = 404;
+        HttpResponse requestResponse = server.request("GET", "/as.html", "http/1.0");
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", 404);
         assertEquals(expectedResponse, requestResponse);
     }
     

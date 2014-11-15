@@ -25,12 +25,12 @@ public class WebServer {
         File file = fileManager.findFile(url);
         
         if (!file.exists()){
-            response = HttpResponser.respondTo(method, protocol, 
-                       HttpResponse.NOT_FOUND);
+            response = HttpResponser.respondTo(protocol, 
+                       404);
         }
         else{
-            response = HttpResponser.respondTo(method, protocol, file, 
-                       HttpResponse.OK);
+            response = HttpResponser.respondTo(protocol, file, 
+                       200);
         }
         
         return response;

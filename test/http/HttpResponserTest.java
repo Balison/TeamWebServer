@@ -42,13 +42,10 @@ public class HttpResponserTest {
     }
 
     @Test
-    public void testRespondTo_GET_OK() {
-        HttpResponse returnedResult = HttpResponser.respondTo("GET", "http/1.0", new File("index.html"), 200);
-        HttpResponse expectedResult = new HttpGetResponse("http/1.0", new File("index.html"), 200);
-        System.out.println(returnedResult.render());
-        System.out.println(expectedResult.render());
-        
-        assertEquals(expectedResult.render(), returnedResult.render());
+    public void testRespondTo_OK() {
+        HttpResponse returnedResult = HttpResponser.respondTo("http/1.0", new File("index.html"), 200);
+        HttpResponse expectedResult = new HttpResponse("http/1.0", new File("index.html"), 200);
+        assertEquals(expectedResult, returnedResult);
     }
     
     
