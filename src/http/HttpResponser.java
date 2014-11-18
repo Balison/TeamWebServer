@@ -15,8 +15,8 @@ public class HttpResponser {
         return response;
     }
 
-    public static HttpResponse respondTo(String vProtocol, int status) {
-        HttpResponse response = new HttpResponse(vProtocol, status);
+    public static HttpResponse respondTo(String vProtocol, String recurso, int status) {
+        HttpResponse response = new HttpResponse(vProtocol, recurso, status);
         return response;
     }
 

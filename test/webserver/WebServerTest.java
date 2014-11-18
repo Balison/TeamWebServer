@@ -57,7 +57,7 @@ public class WebServerTest {
     public void testRequestHEAD_NOT_FOUND(){
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.request("HEAD", "/as.html", "http/1.0");
-        HttpResponse expectedResponse = new HttpResponse("http/1.0", 404);
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", "/as.html", 404);
         assertEquals(expectedResponse, requestResponse);
     }
     
@@ -65,7 +65,7 @@ public class WebServerTest {
     public void testRequestGET_NOT_FOUND(){
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.request("GET", "/as.html", "http/1.0");
-        HttpResponse expectedResponse = new HttpResponse("http/1.0", 404);
+        HttpResponse expectedResponse = new HttpResponse("http/1.0", "/as.html", 404);
         assertEquals(expectedResponse, requestResponse);
     }
     

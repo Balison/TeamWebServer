@@ -37,4 +37,23 @@ public class FileManager {
     private boolean urlHasNoFile(String url){
         return url.charAt(url.length()-1) == '/';
     }
+
+    public String getType() {
+        if(defaultFileName.contains(".html")){
+            return "text/html";
+        }
+        if(defaultFileName.endsWith(".css")){
+            return "text/css";
+        }
+        if(defaultFileName.endsWith(".txt")){
+            return "text/plain";
+        }
+        if(defaultFileName.endsWith(".gif")){
+            return "image/gif";
+        }
+        if(defaultFileName.endsWith(".png")){
+            return "image/png";
+        }
+        return "text/plain";
+    }
 }

@@ -18,13 +18,13 @@ public class HttpResponse {
     public HttpResponse(String vProtocol, File file, int status){
         statusCode = status;
         this.vProtocol = vProtocol;
-        header = new HttpOKHeaderResponse();
+        header = new HttpOKHeaderResponse(file);
     }
     
-    public HttpResponse(String vProtocol, int status){
+    public HttpResponse(String vProtocol, String recurso, int status){
         statusCode = status;
         this.vProtocol = vProtocol;
-        header = new HttpDefaultHeaderResponse();
+        header = new HttpDefaultHeaderResponse(recurso);
     }
     
     public int getStatusCode() {

@@ -25,7 +25,7 @@ public class WebServer {
         File file = fileManager.findFile(url);
         
         if (!file.exists()){
-            response = HttpResponser.respondTo(protocol, 
+            response = HttpResponser.respondTo(protocol, url, 
                        404);
         }
         else{

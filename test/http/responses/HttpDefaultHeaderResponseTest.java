@@ -17,8 +17,15 @@ public class HttpDefaultHeaderResponseTest {
 
     @Test
     public void testEqualsHeader() {
-        HttpDefaultHeaderResponse header1 = new HttpDefaultHeaderResponse();
-        HttpDefaultHeaderResponse header2 = new HttpDefaultHeaderResponse();
+        HttpDefaultHeaderResponse header1 = new HttpDefaultHeaderResponse("/as.html");
+        HttpDefaultHeaderResponse header2 = new HttpDefaultHeaderResponse("/as.html");
         assertEquals(header1, header2);
+    }
+    
+    @Test
+    public void testNotSameHeader() {
+        HttpDefaultHeaderResponse header1 = new HttpDefaultHeaderResponse("/as.html");
+        HttpDefaultHeaderResponse header2 = new HttpDefaultHeaderResponse("/isi.html");
+        assertNotSame(header1, header2);
     }
 }

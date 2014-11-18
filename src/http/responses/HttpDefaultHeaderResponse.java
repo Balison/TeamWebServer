@@ -8,6 +8,7 @@ package http.responses;
 
 import java.time.Instant;
 import java.util.Date;
+import webserver.FileManager;
 
 /**
  *
@@ -18,8 +19,9 @@ public class HttpDefaultHeaderResponse implements HttpHeaderResponse {
     private final String date;
     private final String contentType;
 
-    public HttpDefaultHeaderResponse() {
-        contentType = "text/html";
+    public HttpDefaultHeaderResponse(String recurso) {
+        FileManager manager = new FileManager(recurso);
+        contentType = manager.getType();
         date = Date.from(Instant.now()).toString();
     }
     
