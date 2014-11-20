@@ -21,30 +21,11 @@ import static org.junit.Assert.*;
  * @author Diego Gabriel
  */
 public class HttpResponserTest {
-    
-    public HttpResponserTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     @Test
     public void testRespondTo_OK() {
-        HttpResponse returnedResult = HttpResponser.respondTo("http/1.0", new File("index.html"), 200);
-        HttpResponse expectedResult = new HttpResponse("http/1.0", new File("index.html"), 200);
+        HttpResponse returnedResult = HttpResponser.respondTo(new File("index.html"), 200);
+        HttpResponse expectedResult = new HttpResponse(new File("index.html"), 200);
         assertEquals(expectedResult, returnedResult);
     }
     

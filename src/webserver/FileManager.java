@@ -11,13 +11,12 @@ public class FileManager {
     
     private final String defaultFileName;
     
-    public FileManager(String def){
-        defaultFileName = def;
+    public FileManager(){
+        defaultFileName = "index.html";
     }
     
     public File findFile(String url){
         File file;
-        
         if (urlHasNoFile(url))
             url = url + defaultFileName;
         
@@ -33,22 +32,32 @@ public class FileManager {
         return url.charAt(url.length()-1) == '/';
     }
 
-    public String getType() {
-        if(defaultFileName.contains(".html")){
+    public String getType(File file) {
+        String nombre = file.getName();
+        if(nombre.contains(".html")){
             return "text/html";
         }
-        if(defaultFileName.endsWith(".css")){
+        if(nombre.endsWith(".css")){
             return "text/css";
         }
-        if(defaultFileName.endsWith(".txt")){
+        if(nombre.endsWith(".txt")){
             return "text/plain";
         }
-        if(defaultFileName.endsWith(".gif")){
+        if(nombre.endsWith(".gif")){
             return "image/gif";
         }
-        if(defaultFileName.endsWith(".png")){
+        if(nombre.endsWith(".png")){
             return "image/png";
         }
         return "text/plain";
+    }
+
+    public File updateFile(int status) {
+        if(status == 501)
+            return new File("error501.html");
+        if(status == 400)
+            return new File("error400.html");
+        else
+            return new File("error404.html");
     }
 }

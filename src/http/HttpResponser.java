@@ -9,15 +9,13 @@ import http.responses.*;
  */
 public class HttpResponser {
 
-    public static HttpResponse respondTo(String vProtocol,
-            File file, int status) {
-        HttpResponse response = new HttpResponse(vProtocol, file, status);
+    public static HttpResponse respondTo(File file, int status) {
+        HttpResponse response = new HttpResponse(file, status);
         return response;
     }
 
-    public static HttpResponse respondTo(String vProtocol, String recurso, int status) {
-        HttpResponse response = new HttpResponse(vProtocol, recurso, status);
+    public static HttpResponse respondTo(File file) {
+        HttpResponse response = new HttpResponse(file);
         return response;
     }
-
 }

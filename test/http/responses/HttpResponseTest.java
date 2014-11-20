@@ -13,8 +13,8 @@ public class HttpResponseTest {
 
     @Test
     public void testEqualsResponse() {
-        HttpResponse response1= new HttpResponse("http/1.0", new File("index.html"), 200);
-        HttpResponse response2= new HttpResponse("http/1.0", new File("index.html"), 200);
+        HttpResponse response1= new HttpResponse(new File("index.html"), 200);
+        HttpResponse response2= new HttpResponse(new File("index.html"), 200);
         assertEquals(response1, response2);
     }
     

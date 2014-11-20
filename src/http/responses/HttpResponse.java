@@ -11,20 +11,20 @@ import java.io.File;
 public class HttpResponse {
     
     private HttpHeaderResponse header;
+    private HttpBodyResponse body;
     
     private final int statusCode;
-    private final String vProtocol;
     
-    public HttpResponse(String vProtocol, File file, int status){
+    public HttpResponse(File file, int status){
         statusCode = status;
-        this.vProtocol = vProtocol;
-        header = new HttpOKHeaderResponse(file);
+        header = new HttpHeaderResponse(file);
+        //armar cuerpo si es GET
     }
     
-    public HttpResponse(String vProtocol, String recurso, int status){
-        statusCode = status;
-        this.vProtocol = vProtocol;
-        header = new HttpDefaultHeaderResponse(recurso);
+    public HttpResponse(File file){
+        statusCode = -1;
+        header = null;
+        //armar cuerpo
     }
     
     public int getStatusCode() {
@@ -36,7 +36,6 @@ public class HttpResponse {
         if(other instanceof HttpResponse){
             HttpResponse otherResponse = (HttpResponse) other;
             return statusCode == otherResponse.statusCode &&
-                    vProtocol.equals(otherResponse.vProtocol) &&
                     header.equals(otherResponse.header);
         }
         return false;
