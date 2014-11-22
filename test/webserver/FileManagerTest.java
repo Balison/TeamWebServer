@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Diego Gabriel
+ * @author TeamServer
  */
 public class FileManagerTest {
     
@@ -74,5 +74,38 @@ public class FileManagerTest {
         String typeFileReturned = fileManager.getType(new File("index"));
         
         assertEquals("text/plain", typeFileReturned);
+    }
+    
+    @Test
+    public void testUpdateFile400() {
+        FileManager fileManager = new FileManager();
+        File fileReturned = fileManager.updateFile(400);
+        File fileExpected = new File("error400.html");
+        assertEquals(fileExpected, fileReturned);
+    }
+    
+    @Test
+    public void testUpdateFile404() {
+        FileManager fileManager = new FileManager();
+        File fileReturned = fileManager.updateFile(404);
+        File fileExpected = new File("error404.html");
+        assertEquals(fileExpected, fileReturned);
+    }
+    
+    
+    @Test
+    public void testUpdateFile501() {
+        FileManager fileManager = new FileManager();
+        File fileReturned = fileManager.updateFile(501);
+        File fileExpected = new File("error501.html");
+        assertEquals(fileExpected, fileReturned);
+    }
+    
+    @Test
+    public void testLastModified() {
+        FileManager fileManager = new FileManager();
+        String dateReturned = fileManager.lastModified(new File("index.html"));
+        String dateExpected = "Sat Nov 22 14:00:03 BOT 2014";
+        assertEquals(dateExpected, dateReturned);
     }
 }

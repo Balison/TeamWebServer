@@ -3,10 +3,11 @@
 package http.responses;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
- * @author Diego Gabriel
+ * @author TeamServer
  */
 public class HttpResponse {
     
@@ -15,28 +16,41 @@ public class HttpResponse {
     
     private final int statusCode;
     
-    public HttpResponse(File file, int status){
+    public HttpResponse(File file, int status) throws IOException{
         statusCode = status;
         header = new HttpHeaderResponse(file);
-        //armar cuerpo si es GET
+        body = new HttpBodyResponse(file);
     }
     
-    public HttpResponse(File file){
+    public HttpResponse(File file) throws IOException{
         statusCode = -1;
         header = null;
-        //armar cuerpo
+        body = new HttpBodyResponse(file);
     }
-    
-    public int getStatusCode() {
-        return statusCode;
+
+    public HttpResponse(File file, String method) throws IOException {
+        statusCode = 200;
+        header = new HttpHeaderResponse(file);
+        if(method.equals("HEAD"))
+            body = null;
+        else
+            body = new HttpBodyResponse(file);
     }
     
     @Override
     public boolean equals(Object other){
         if(other instanceof HttpResponse){
             HttpResponse otherResponse = (HttpResponse) other;
-            return statusCode == otherResponse.statusCode &&
-                    header.equals(otherResponse.header);
+            if(header == null)
+                return statusCode == otherResponse.statusCode && 
+                        body.equals(otherResponse.body);
+            if(body == null)
+                return statusCode == otherResponse.statusCode &&
+                        header.equals(otherResponse.header);
+            else
+                return statusCode == otherResponse.statusCode &&
+                        header.equals(otherResponse.header) &&
+                        body.equals(otherResponse.body);
         }
         return false;
     }    
