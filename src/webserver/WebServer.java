@@ -2,7 +2,6 @@ package webserver;
 
 import http.HttpResponser;
 import http.responses.HttpResponse;
-import httpRequest.HttpRequest;
 import java.io.IOException;
 
 /**

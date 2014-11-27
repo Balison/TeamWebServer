@@ -23,7 +23,7 @@ public class HttpResponse {
     }
     
     public HttpResponse(File file) throws IOException{
-        statusCode = -1;
+        statusCode = 0;
         header = null;
         body = new HttpBodyResponse(file);
     }

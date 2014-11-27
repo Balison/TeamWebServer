@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.Instant;
 import java.util.Date;
 import webserver.FileManager;
+import webserver.WebServer;
 
 /**
  *
@@ -11,6 +12,7 @@ import webserver.FileManager;
  */
 public class HttpHeaderResponse {
      
+    private final String serverInformation;
     private final String date;
     private final String contentType;
     private final String lastModified;
@@ -18,6 +20,7 @@ public class HttpHeaderResponse {
     
     public HttpHeaderResponse(File file) {
         FileManager manager = new FileManager();
+        serverInformation = WebServer.SERVER_NAME;
         contentType = manager.getType(file);
         date = Date.from(Instant.now()).toString();
         lastModified = manager.lastModified(file);
@@ -28,7 +31,8 @@ public class HttpHeaderResponse {
     public boolean equals(Object other){
         if(other instanceof HttpHeaderResponse){
             HttpHeaderResponse otherHeader = (HttpHeaderResponse) other;
-            return date.equals(otherHeader.date) && 
+            return serverInformation.equals(otherHeader.serverInformation) &&
+                    date.equals(otherHeader.date) && 
                     lastModified.equals(otherHeader.lastModified) &&
                     contentLength == otherHeader.contentLength &&
                     contentType.equals(otherHeader.contentType);
