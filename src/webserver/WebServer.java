@@ -2,6 +2,8 @@ package webserver;
 
 import http.HttpResponser;
 import http.responses.HttpResponse;
+import httpRequest.HttpRequest;
+import java.io.IOException;
 
 /**
  *
@@ -18,7 +20,7 @@ public class WebServer {
         fileManager = new FileManager();
     }
 
-    public HttpResponse request(String method, String url, String protocol) {
+    public HttpResponse request(String method, String url, String protocol) throws IOException {
         int status = validateFullRequest(method, url, protocol);
         if (status == 200) {
             return HttpResponser.respondTo(fileManager.findFile(url), method);
@@ -27,7 +29,7 @@ public class WebServer {
     }
     
     
-    public HttpResponse request(String method, String url) {
+    public HttpResponse request(String method, String url) throws IOException {
         int status = validateSimpleRequest(method, url);
         if (status != 200) {
             return HttpResponser.respondTo(fileManager.updateFile(status));

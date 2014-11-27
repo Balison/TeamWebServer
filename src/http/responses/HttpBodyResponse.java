@@ -17,15 +17,12 @@ public class HttpBodyResponse {
         contenido = manager.getContenido(file);
     }
     
+    @Override
     public boolean equals(Object other){
         if(other instanceof HttpBodyResponse){
             HttpBodyResponse otherBody = (HttpBodyResponse) other;
             return contenido.equals(otherBody.contenido);
         }
         return false;
-    }
-    
-    public String getContenido(){
-        return contenido;
     }
 }

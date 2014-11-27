@@ -2,6 +2,7 @@
 package webserver;
 
 import java.io.File;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -107,5 +108,14 @@ public class FileManagerTest {
         String dateReturned = fileManager.lastModified(new File("index.html"));
         String dateExpected = "Sat Nov 22 14:00:03 BOT 2014";
         assertEquals(dateExpected, dateReturned);
+    }
+    
+    @Test
+    public void testContenido() throws IOException {
+        FileManager fileManager = new FileManager();
+        String contentReturned = fileManager.getContenido(new File("index.html"));
+        String dateExpected = "<html><head>	<title>Index</title></head><body>"
+                + "	<h1>Pagina inicial :D</h1></body></html>";
+        assertEquals(dateExpected, contentReturned);
     }
 }
