@@ -37,7 +37,7 @@ public class FileManager {
         return url.charAt(url.length() - 1) == '/';
     }
 
-    public String getType(File file) {
+    public String getType(File file) throws IOException {
         String nombre = file.getName();
         if (nombre.contains(".html")) {
             return "text/html";
@@ -53,6 +53,11 @@ public class FileManager {
         }
         if (nombre.endsWith(".png")) {
             return "image/png";
+        }
+        else{
+            String contenido = getContenido(file);
+            if(contenido.contains("html"))
+                return "text/html";
         }
         return "text/plain";
     }

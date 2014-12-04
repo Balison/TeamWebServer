@@ -62,7 +62,7 @@ public class FileManagerTest {
     }
     
     @Test
-    public void testTypeFileHtml() {
+    public void testTypeFileHtml() throws IOException {
         FileManager fileManager = new FileManager();
         String typeFileReturned = fileManager.getType(new File("index.html"));
         
@@ -70,11 +70,11 @@ public class FileManagerTest {
     }
     
     @Test
-    public void testTypeFileDefault() {
+    public void testTypeFileDefault() throws IOException {
         FileManager fileManager = new FileManager();
         String typeFileReturned = fileManager.getType(new File("index"));
         
-        assertEquals("text/plain", typeFileReturned);
+        assertEquals("text/html", typeFileReturned);
     }
     
     @Test
