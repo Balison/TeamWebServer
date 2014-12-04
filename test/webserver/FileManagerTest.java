@@ -78,30 +78,43 @@ public class FileManagerTest {
     }
     
     @Test
-    public void testUpdateFile400() {
+    public void testUpdateFile400() throws IOException {
         FileManager fileManager = new FileManager();
-        File fileReturned = fileManager.updateFile(400);
-        File fileExpected = new File("error400.html");
-        assertEquals(fileExpected, fileReturned);
+        File fileReturned = fileManager.updateFile(400,null,null);
+        String expected="<html><head><title>400 Bad Request</title></head>"
+                        + "<body><h1>Bad Request</h1><p>Your browser sent a request that this server could not understand.<br/></p>"
+                        + "</body></html>";
+        String actual = fileManager.getContenido(fileReturned);
+        assertEquals(expected,actual);
+        
     }
+   
+    @Test
+    public void testUpdateFile404() throws IOException {
+        FileManager fileManager = new FileManager();
+        File fileReturned = fileManager.updateFile(404,null,"/mundo.html");
+        String expected = "<html><head><title>404 Not Found</title></head>"
+                         + "<body><h1>Not Found</h1><p>The requested URL /mundo.html was not found on this server.<br/></p>"
+                         + "</body></html>";
+        String actual = fileManager.getContenido(fileReturned);
+        assertEquals(expected, actual);
+        
+    }
+    
     
     @Test
-    public void testUpdateFile404() {
+    public void testUpdateFile501() throws IOException {
         FileManager fileManager = new FileManager();
-        File fileReturned = fileManager.updateFile(404);
-        File fileExpected = new File("error404.html");
-        assertEquals(fileExpected, fileReturned);
+        File fileReturned = fileManager.updateFile(501,"GO","/index.html");
+        String expected ="<html><head><title>501 Method Not Implemented</title></head>"
+                       + "<body><h1>Method Not Implemented</h1>"
+                       + "<p>GO to /index.html not supported.<br/></p>"
+                       + "</body></html>"; 
+        String actual = fileManager.getContenido(fileReturned);
+        assertEquals(expected,actual);
+        
     }
-    
-    
-    @Test
-    public void testUpdateFile501() {
-        FileManager fileManager = new FileManager();
-        File fileReturned = fileManager.updateFile(501);
-        File fileExpected = new File("error501.html");
-        assertEquals(fileExpected, fileReturned);
-    }
-    
+    /*
     @Test
     public void testLastModified() {
         FileManager fileManager = new FileManager();
@@ -109,13 +122,12 @@ public class FileManagerTest {
         String dateExpected = "Sat Nov 22 14:00:03 BOT 2014";
         assertEquals(dateExpected, dateReturned);
     }
-    
+    */
     @Test
     public void testContenido() throws IOException {
         FileManager fileManager = new FileManager();
         String contentReturned = fileManager.getContenido(new File("index.html"));
-        String dateExpected = "<html><head>	<title>Index</title></head><body>"
-                + "	<h1>Pagina inicial :D</h1></body></html>";
+        String dateExpected = "<html><head><title>Index</title></head><body><h1>Pagina inicial :D</h1></body></html>";
         assertEquals(dateExpected, contentReturned);
     }
 }

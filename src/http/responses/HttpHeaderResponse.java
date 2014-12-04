@@ -1,6 +1,7 @@
 package http.responses;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.Date;
 import webserver.FileManager;
@@ -18,7 +19,7 @@ public class HttpHeaderResponse {
     private final String lastModified;
     private final long contentLength;
     
-    public HttpHeaderResponse(File file) {
+    public HttpHeaderResponse(File file) throws IOException {
         FileManager manager = new FileManager();
         serverInformation = WebServer.SERVER_NAME;
         contentType = manager.getType(file);

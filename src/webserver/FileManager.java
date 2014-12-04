@@ -3,6 +3,7 @@ package webserver;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
@@ -76,12 +77,12 @@ public class FileManager {
     public String getContenido(File file) throws IOException {
         String contenido = "";
         if (file.exists()) {
-            FileReader readerFile = readerFile = new FileReader(file);
+            FileReader readerFile = new FileReader(file);
             BufferedReader buferFile = new BufferedReader(readerFile);
             String linea;
             if (file.length() > 0) {
                 while ((linea = buferFile.readLine()) != null) {
-                    contenido = contenido + linea;
+                    contenido = contenido + linea.trim();
                 }
             }
             buferFile.close();
@@ -92,5 +93,20 @@ public class FileManager {
     public String lastModified(File file) {
         Date fecha = new Date(file.lastModified());
         return fecha.toString();
+    }
+
+    public File updateFile(int status, String method, String url) {
+       String statusLine=DataBaseResponseError.response(status);
+       String detailStatus=DataBaseResponseError.detailedResponse(status, method, url);
+       
+       String textHtml="<html><head>\n  <title>"+status+" "+statusLine+"</title>\n</head><body>\n   <h1>"+statusLine+"</h1>\n   <p>"+detailStatus+"<br/></p>\n</body></html>";
+        
+        try (FileWriter fw = new FileWriter("src/temp/error.html")) {
+               fw.write(textHtml);
+           }            
+        catch (Exception e) {
+            e.getMessage();
+        }
+        return new File("src/temp/error.html");
     }
 }

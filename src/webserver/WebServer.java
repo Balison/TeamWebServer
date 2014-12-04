@@ -24,7 +24,7 @@ public class WebServer {
         if (status == 200) {
             return HttpResponser.respondTo(fileManager.findFile(url), method);
         }
-        return HttpResponser.respondTo(fileManager.updateFile(status), status);
+        return HttpResponser.respondTo(fileManager.updateFile(status,method,url), status);
     }
     
     
@@ -33,7 +33,7 @@ public class WebServer {
         if (status == 200) {
             return HttpResponser.respondTo(fileManager.findFile(url));
         } else {
-            return HttpResponser.respondTo(fileManager.updateFile(status));
+            return HttpResponser.respondTo(fileManager.updateFile(status,method,url));
         }
     }
 
