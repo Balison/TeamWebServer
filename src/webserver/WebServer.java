@@ -30,10 +30,10 @@ public class WebServer {
     
     public HttpResponse request(String method, String url) throws IOException {
         int status = validateSimpleRequest(method, url);
-        if (status != 200) {
-            return HttpResponser.respondTo(fileManager.updateFile(status));
-        } else {
+        if (status == 200) {
             return HttpResponser.respondTo(fileManager.findFile(url));
+        } else {
+            return HttpResponser.respondTo(fileManager.updateFile(status));
         }
     }
 
