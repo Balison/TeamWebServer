@@ -131,5 +131,19 @@ public class WebServerTest {
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
         assertEquals(expectedResponse, requestResponse);
     }
+    @Test
+    public void requestGetLine() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.loadRequest("GET /");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+    @Test 
+    public void requestHead() throws IOException{
     
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.loadRequest("HEAD / HTTP/1.0");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"), "HEAD");
+        assertEquals(expectedResponse, requestResponse);
+    }
 }

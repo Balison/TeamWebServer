@@ -79,5 +79,27 @@ public class WebServer {
             return 404;
         }
     }
-
+    public HttpResponse loadRequest(String request) throws IOException{
+        HttpResponse respons=null;
+        request = request.trim();
+        String[] requestLine = request.split(" ");
+        String method="";
+        String resource="";
+        String version="";
+        if(requestLine.length==3){        
+            method = requestLine[0];
+            resource =  requestLine[1];
+            version =  requestLine[2];
+            respons= request(method,resource,version);
+        }else if(requestLine.length==2){
+            method = requestLine[0];
+            resource =  requestLine[1];
+           
+            respons= request(method,resource);
+        }else if(requestLine.length==1){
+            method = requestLine[0];
+            respons= request(method,resource);
+        }
+    return respons;
+    }
 }

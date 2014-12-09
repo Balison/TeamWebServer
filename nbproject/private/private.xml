@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Alison/umss/Sem6/AS/repo/TeamWS/TeamWebServer/src/webserver/WebServer.java</file>
-            <file>file:/D:/Alison/umss/Sem6/AS/repo/TeamWS/TeamWebServer/test/webserver/WebServerTest.java</file>
-            <file>file:/D:/Alison/umss/Sem6/AS/repo/TeamWS/TeamWebServer/src/http/responses/HttpHeaderResponse.java</file>
-            <file>file:/D:/Alison/umss/Sem6/AS/repo/TeamWS/TeamWebServer/src/httpRequest/HttpRequest.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/test/webserver/WebServerTest.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/http/responses/HttpHeaderResponse.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/webserver/WebServer.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/test/webserver/FileManagerTest.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/webserver/FileManager.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/test/http/responses/HttpResponseTest.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/http/responses/HttpResponse.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/http/HttpResponser.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/test/webserver/DataBaseResponseErrorTest.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/webserver/DataBaseResponseError.java</file>
+            <file>file:/home/franko/NetBeansProjects/TeamWebServer/src/temp/error.html</file>
         </group>
     </open-files>
 </project-private>
