@@ -25,4 +25,8 @@ public class HttpBodyResponse {
         }
         return false;
     }
+
+    public String render() {
+        return contenido;
+    }
 }

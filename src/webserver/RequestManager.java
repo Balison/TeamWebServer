@@ -22,21 +22,26 @@ public class RequestManager {
     public HttpResponse management(String request) throws IOException {
         request = request.trim();
         String[] requestLine = request.split(" ");
-        String method, resource = "", version;
-        if(requestLine.length == 3){        
+        String method, resource = " ", version;
+        if(requestLine.length > 3){
             method = requestLine[0];
-            resource =  requestLine[1];
-            version =  requestLine[2];
+            resource = requestLine[1];
+            version = requestLine[2];
+            return request(method, resource, version);
+        }
+        else if(requestLine.length == 3){        
+            method = requestLine[0];
+            resource = requestLine[1];
+            version = requestLine[2];
             return request(method, resource, version);
         }else if(requestLine.length == 2){
             method = requestLine[0];
-            resource =  requestLine[1];
+            resource = requestLine[1];
             return request(method, resource);
-        }else if(requestLine.length == 1){
+        }else{
             method = requestLine[0];
             return request(method, resource);
         }
-        return null;
     }
     
     private HttpResponse request(String method, String url, String protocol) throws IOException {

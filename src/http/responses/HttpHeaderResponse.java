@@ -28,6 +28,20 @@ public class HttpHeaderResponse {
         contentLength = file.length();
     }
     
+    public String render(){
+        StringBuilder res = new StringBuilder("Date: ");
+        res.append(date).append("\n");
+        res.append("Server: ");
+        res.append(serverInformation).append("\n");
+        res.append("Content-Type: ");
+        res.append(contentType).append("\n");
+        res.append("Content-Length: ");
+        res.append(contentLength).append("\n");
+        res.append("Last-Modified: ");
+        res.append(lastModified).append("\n");
+        return res.toString();
+    }
+    
     @Override
     public boolean equals(Object other){
         if(other instanceof HttpHeaderResponse){

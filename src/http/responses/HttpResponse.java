@@ -37,6 +37,24 @@ public class HttpResponse {
             body = new HttpBodyResponse(file);
     }
     
+    public String render(){
+        StringBuilder res = new StringBuilder();
+        if(statusCode != 0)
+            res.append("HTTP/1.0 ").append(statusCode).append(" \n");
+        if(header == null)
+            res.append(body.render());
+        else if(body == null)
+            res.append(header.render());
+        else{
+            res.append(header.render());
+            res.append("\n");
+            res.append(body.render());
+        }
+        
+        res.append("\n");
+        return res.toString();
+    }
+    
     @Override
     public boolean equals(Object other){
         if(other instanceof HttpResponse){

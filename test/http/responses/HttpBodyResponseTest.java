@@ -26,4 +26,13 @@ public class HttpBodyResponseTest {
         assertNotSame(body1, body2);
     }
     
+    @Test 
+    public void testRender() throws IOException{
+        HttpBodyResponse body = new HttpBodyResponse(new File("index.html"));
+        String renderCalculate = body.render();
+        String renderExpected = "<html><head><title>Index</title></head><body>"
+                + "<h1>Pagina inicial :D</h1></body></html>";
+        assertEquals(renderExpected, renderCalculate);
+    }
+    
 }
