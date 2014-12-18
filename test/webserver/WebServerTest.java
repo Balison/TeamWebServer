@@ -77,7 +77,7 @@ public class WebServerTest {
     }
     
     @Test
-    public void testSimpleRequestHEAD_OK() throws IOException{
+    public void testSimpleRequestHEAD() throws IOException{
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.responseRequest("HEAD /");
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));

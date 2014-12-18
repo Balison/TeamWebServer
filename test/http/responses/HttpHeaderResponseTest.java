@@ -1,6 +1,7 @@
 package http.responses;
 
 import java.io.File;
+import java.io.IOException;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ import org.junit.Test;
 public class HttpHeaderResponseTest {
 
     @Test
-    public void testSameHeader() {
+    public void testSameHeader() throws IOException {
         HttpHeaderResponse header1 = new HttpHeaderResponse(new File("index.html"));
         HttpHeaderResponse header2 = new HttpHeaderResponse(new File("index.html"));
         
@@ -19,11 +20,10 @@ public class HttpHeaderResponseTest {
     }
     
     @Test
-    public void testDistintHeader() {
+    public void testDistintHeader() throws IOException {
         HttpHeaderResponse header1 = new HttpHeaderResponse(new File("index.html"));
         HttpHeaderResponse header2 = new HttpHeaderResponse(new File("lala.html"));
         
         assertNotSame(header1, header2);
     }
-    
 }

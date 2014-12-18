@@ -33,18 +33,16 @@ public class WebServer {
         BufferedReader entradaCliente;
         DataOutputStream salidaServer;
         String peticion;
-        try {
-            ServerSocket puertoServidor = new ServerSocket(PUERTO);
+        try (ServerSocket puertoServidor = new ServerSocket(PUERTO)) {
             Socket puerto = puertoServidor.accept();
             entradaCliente = new BufferedReader(new InputStreamReader(
                     puerto.getInputStream()));
             salidaServer = new DataOutputStream(puerto.getOutputStream());
             peticion = entradaCliente.readLine();
-            
+
             HttpResponse response = responseRequest(peticion);
-            //falta que response se muestre
-            salidaServer.writeUTF("recibido");
-            puertoServidor.close();
+            salidaServer.writeChars("\n");
+            salidaServer.writeChars(response.render());
             
         } catch (IOException ex) {
             Logger.getLogger(WebServer.class.getName()).log(Level.SEVERE, null, ex);

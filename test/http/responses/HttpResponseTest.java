@@ -67,5 +67,4 @@ public class HttpResponseTest {
         HttpResponse response2= new HttpResponse(new File("error404.html"));
         assertNotSame(response1, response2);
     }
-    
 }
