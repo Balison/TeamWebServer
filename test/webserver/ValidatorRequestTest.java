@@ -15,7 +15,7 @@ public class ValidatorRequestTest {
     public void testFullRequestGET_OK(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("GET", "/", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("GET", "/", "HTTP/1.1");
         assertEquals(200, statusResponse);
     }
     
@@ -23,7 +23,7 @@ public class ValidatorRequestTest {
     public void testFullRequestHEAD_OK(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("HEAD", "/", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("HEAD", "/", "HTTP/1.1");
         assertEquals(200, statusResponse);
     }
     
@@ -31,7 +31,7 @@ public class ValidatorRequestTest {
     public void testFullRequestHEAD_NOT_FOUND(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("HEAD", "/as.html", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("HEAD", "/as.html", "HTTP/1.1");
         assertEquals(404, statusResponse);
     }
     
@@ -39,7 +39,7 @@ public class ValidatorRequestTest {
     public void testFullRequestGET_NOT_FOUND(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("GET", "/as.html", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("GET", "/as.html", "HTTP/1.1");
         assertEquals(404, statusResponse);
     }
     
@@ -47,7 +47,7 @@ public class ValidatorRequestTest {
     public void testFullRequestHED_NOT_IMPLEMENT(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("HED", "/as.html", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("HED", "/as.html", "HTTP/1.1");
         assertEquals(501, statusResponse);
     }
     
@@ -55,7 +55,7 @@ public class ValidatorRequestTest {
     public void testFullRequestHEAD_EMPTY_URL(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("HEAD", "", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("HEAD", "", "HTTP/1.1");
         assertEquals(400, statusResponse);
     }
     
@@ -63,7 +63,7 @@ public class ValidatorRequestTest {
     public void testFullRequestGET_EMPTY_URL(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("GET", "", "HTTP/1.0");
+        int statusResponse = validator.validateFullRequest("GET", "", "HTTP/1.1");
         assertEquals(400, statusResponse);
     }
     
@@ -71,7 +71,7 @@ public class ValidatorRequestTest {
     public void testFullRequestHEAD_BAD_PROTOCOL(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("HEAD", "/index.html", "HTTP/1.1");
+        int statusResponse = validator.validateFullRequest("HEAD", "/index.html", "HTTP/1.3");
         assertEquals(400, statusResponse);
     }
     
@@ -79,7 +79,7 @@ public class ValidatorRequestTest {
     public void testFullRequestGET_BAD_PROTOCOL(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
-        int statusResponse = validator.validateFullRequest("GET", "/index.html", "HTTP/1.1");
+        int statusResponse = validator.validateFullRequest("GET", "/index.html", "HTTP/1.3");
         assertEquals(400, statusResponse);
     }
     

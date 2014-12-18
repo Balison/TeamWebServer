@@ -41,8 +41,9 @@ public class WebServer {
             peticion = entradaCliente.readLine();
 
             HttpResponse response = responseRequest(peticion);
-            salidaServer.writeChars("\n");
-            salidaServer.writeChars(response.render());
+            salidaServer.writeUTF(response.render());
+            
+            salidaServer.close();
             
         } catch (IOException ex) {
             Logger.getLogger(WebServer.class.getName()).log(Level.SEVERE, null, ex);
