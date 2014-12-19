@@ -36,7 +36,8 @@ public class ValidatorRequest {
         if (url.isEmpty()) {
             return 400;
         }
-        if (!protocol.equals("HTTP/1.1")) {
+        if (!(protocol.equals("\"HTTP/1.1\"") || protocol.equals("\"HTTP/1.0\"") ||
+                protocol.equals("HTTP/1.0") || protocol.equals("HTTP/1.1"))) {
             return 400;
         }
         if (fileManager.findFile(url).exists()) {
