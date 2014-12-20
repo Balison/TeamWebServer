@@ -21,6 +21,7 @@ public class RequestManager {
 
     public HttpResponse management(String request) throws IOException {
         request = request.trim();
+        request = request.split("\n")[0];
         String[] requestLine = request.split(" ");
         String method, resource = " ", version;
         if(requestLine.length > 3){

@@ -51,7 +51,6 @@ public class HttpResponse {
             res.append(body.render());
         }
         
-        res.append("\n");
         return res.toString();
     }
     

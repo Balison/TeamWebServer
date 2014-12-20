@@ -2,10 +2,12 @@ package webserver;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -77,15 +79,10 @@ public class FileManager {
     public String getContenido(File file) throws IOException {
         String contenido = "";
         if (file.exists()) {
-            FileReader readerFile = new FileReader(file);
-            BufferedReader buferFile = new BufferedReader(readerFile);
-            String linea;
-            if (file.length() > 0) {
-                while ((linea = buferFile.readLine()) != null) {
-                    contenido = contenido + linea.trim();
-                }
+            try {
+                contenido = new Scanner(file).useDelimiter("\\Z").next();
+            } catch (FileNotFoundException ex) {
             }
-            buferFile.close();
         }
         return contenido;
     }

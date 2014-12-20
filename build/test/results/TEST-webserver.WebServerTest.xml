@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="FAMILIAIVAN" name="webserver.WebServerTest" skipped="0" tests="13" time="0.157" timestamp="2014-12-19T16:25:52">
+<testsuite errors="0" failures="0" hostname="FAMILIAIVAN" name="webserver.WebServerTest" skipped="0" tests="13" time="0.187" timestamp="2014-12-20T21:03:22">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="BO" />
@@ -58,7 +58,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner webserver.WebServerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\test\results\TEST-webserver.WebServerTest.xml crashfile=D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\junitvmwatcher8445644553024769869.properties propsfile=D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\junit335803577531062452.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner webserver.WebServerTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\test\results\TEST-webserver.WebServerTest.xml crashfile=D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\junitvmwatcher2869846224570340438.properties propsfile=D:\Alison\umss\Sem6\AS\repo\TeamWS\TeamWebServer\build\junit4241768784868466399.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -111,6 +111,7 @@
     <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
     <property name="libs.jaxb.javadoc" value="C:\Archivos de programa\NetBeans 8.0\ide\docs\jaxb-api-doc.zip" />
     <property name="libs.struts.classpath" value="C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="C:\Archivos de programa\NetBeans 8.0\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Archivos de programa\NetBeans 8.0\java\docs\junit-4.10-sources.jar" />
     <property name="libs.testng.classpath" value="C:\Archivos de programa\NetBeans 8.0\platform\modules\ext\testng-6.8.1-dist.jar" />
@@ -220,6 +221,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
     <property name="netbeans.user" value="C:\Documents and Settings\Usuario\Datos de programa\NetBeans\8.0" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\DOCUME~1\Usuario\CONFIG~1\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -288,8 +290,8 @@
     <property name="do.depend" value="false" />
     <property name="libs.j2me_common_ant.classpath" value="C:\Archivos de programa\NetBeans 8.0\mobility\modules\org-netbeans-modules-j2me-common-ant.jar;C:\Archivos de programa\NetBeans 8.0\java\modules\org-netbeans-modules-classfile.jar" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
-    <property name="libs.swing-layout.classpath" value="C:\Archivos de programa\NetBeans 8.0\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.spring-webmvc3.0.classpath" value="C:\Archivos de programa\NetBeans 8.0\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="C:\Archivos de programa\NetBeans 8.0\platform\modules\ext\swing-layout-1.0.4.jar" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
     <property name="libs.restlib.src" value="" />
     <property name="javac.source" value="1.8" />
@@ -324,8 +326,8 @@
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.8" />
     <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_20-b26" />
     <property name="default.javac.target" value="1.8" />
@@ -340,8 +342,8 @@
     <property name="libs.metro.src" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\Archivos de programa\NetBeans 8.0\java\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
-    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.metro.classpath" value="C:\Archivos de programa\NetBeans 8.0\ide\modules\ext\jaxb\activation.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\metro\webservices-api.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\metro\webservices-extra.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\metro\webservices-rt.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\metro\webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.jpa2-persistence.javadoc" value="" />
     <property name="libs.DataBindingME.javadoc" value="C:\Archivos de programa\NetBeans 8.0\mobility\modules\docs\netbeans_databindingme-api.zip" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
@@ -352,8 +354,8 @@
     <property name="os.version" value="5.1" />
     <property name="application.args" value="" />
     <property name="libs.javaee-api-7.0.maven-pom" value="" />
-    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
@@ -375,8 +377,8 @@
     <property name="dist.archive.excludes" value="" />
     <property name="libs.testng.javadoc" value="C:\Archivos de programa\NetBeans 8.0\platform\docs\testng-6.8.1-javadoc.zip" />
     <property name="libs.DataBindingME-PIM.src" value="C:\Archivos de programa\NetBeans 8.0\mobility\sources\netbeans_databindingme_pim-src.zip" />
-    <property name="libs.PostgreSQLDriver.classpath" value="C:\Archivos de programa\NetBeans 8.0\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
     <property name="user.script" value="" />
+    <property name="libs.PostgreSQLDriver.classpath" value="C:\Archivos de programa\NetBeans 8.0\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
     <property name="libs.jsf12.maven-pom" value="" />
     <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Archivos de programa\NetBeans 8.0\java\modules\ext\hibernate4\hibernate-jpamodelgen-1.3.0.Final.jar" />
     <property name="libs.junit.src" value="" />
@@ -386,8 +388,8 @@
     <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="C:\Archivos de programa\NetBeans 8.0\extide\ant\lib\ant.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Archivos de programa\NetBeans 8.0\enterprise\modules\ext\jstl-api.jar;C:\Archivos de programa\NetBeans 8.0\extide\ant\lib\ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on July 8 2013" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="Cp1252" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="jdkBug6558476" value="false" />
     <property name="javadoc.nonavbar" value="false" />
     <property name="libs.spring-webmvc4.0.classpath" value="C:\Archivos de programa\NetBeans 8.0\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
@@ -395,19 +397,19 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Archivos de programa\NetBeans 8.0\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="webserver.WebServerTest" name="testSimpleRequestHED_NOT_IMPLEMENT" time="0.015" />
-  <testcase classname="webserver.WebServerTest" name="testFullRequestGET_OK" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testFullRequestHEAD_OK" time="0.016" />
+  <testcase classname="webserver.WebServerTest" name="testSimpleRequestGET_OK" time="0.015" />
   <testcase classname="webserver.WebServerTest" name="testFullRequestGET_NOT_FOUND" time="0.0" />
-  <testcase classname="webserver.WebServerTest" name="testFullRequestHED_NOT_IMPLEMENT" time="0.015" />
-  <testcase classname="webserver.WebServerTest" name="testFullRequestHEAD_BAD_PROTOCOL" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testFullRequestHED_NOT_IMPLEMENT" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testFullRequestHEAD_BAD_PROTOCOL" time="0.016" />
   <testcase classname="webserver.WebServerTest" name="testFullRequestGET_BAD_PROTOCOL" time="0.0" />
   <testcase classname="webserver.WebServerTest" name="testSimpleRequestHEAD_NOT_FOUND" time="0.0" />
-  <testcase classname="webserver.WebServerTest" name="testSimpleRequestGET_NOT_FOUND" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testSimpleRequestGET_NOT_FOUND" time="0.015" />
   <testcase classname="webserver.WebServerTest" name="testSimpleRequestHEAD_EMPTY_URL" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testSimpleRequestHED_NOT_IMPLEMENT" time="0.0" />
+  <testcase classname="webserver.WebServerTest" name="testFullRequestGET_OK" time="0.0" />
   <testcase classname="webserver.WebServerTest" name="testSimpleRequestHEAD" time="0.0" />
   <testcase classname="webserver.WebServerTest" name="testFullRequestHEAD_NOT_FOUND" time="0.0" />
-  <testcase classname="webserver.WebServerTest" name="testSimpleRequestGET_OK" time="0.016" />
-  <testcase classname="webserver.WebServerTest" name="testFullRequestHEAD_OK" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
