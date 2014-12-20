@@ -18,11 +18,13 @@ public class WebServer {
 
     private final int PUERTO = 8000;
     private final RequestManager requestManager;
-
+    private final ParametersManager parameterManager;
+    
     public static final String SERVER_NAME = "apachito/0.1";
 
     public WebServer() {
         requestManager = new RequestManager();
+        parameterManager = new ParametersManager();
     }
     
     public HttpResponse responseRequest(String request) throws IOException{
@@ -39,7 +41,7 @@ public class WebServer {
             entradaCliente = new BufferedReader(new InputStreamReader(
                     puerto.getInputStream()));
             salidaServer = new DataOutputStream(puerto.getOutputStream());
-            String linea = "";
+            String parametros = "", linea = "";
             int indiceLinea = 0;
 
             while((linea = entradaCliente.readLine()) != null){
@@ -50,16 +52,20 @@ public class WebServer {
                     peticion = peticion + "\n";
                 }
                 if(linea.startsWith("Content-Length: ")){
-                    tamano = Integer.parseInt(linea.substring("Content-Length: ".length()));
+                    tamano = Integer.parseInt(linea.substring(16));
                 }
                 indiceLinea++;
                 peticion = peticion + linea; 
             }
-            
-            String parametros = leerParametros(tamano, entradaCliente);
+         
+            parametros = leerParametros(tamano, entradaCliente);
             System.out.println(peticion);
             System.out.println(parametros);
+            
             HttpResponse response = responseRequest(peticion);
+            if(response.status() == 200 && !parametros.equals("")){
+                parameterManager.load(parametros);
+            }
             salidaServer.writeUTF(response.render());
             System.out.println(response.render());
             salidaServer.close();

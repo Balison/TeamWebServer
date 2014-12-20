@@ -71,4 +71,8 @@ public class HttpResponse {
         }
         return false;
     }    
+
+    public int status() {
+        return statusCode;
+    }
 }
