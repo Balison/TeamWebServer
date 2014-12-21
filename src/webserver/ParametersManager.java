@@ -16,7 +16,7 @@ public class ParametersManager {
         String[] pareja;
         for(String tupla: atributoValor){
             pareja = tupla.split("=");
-            tuplas.put(pareja[0], pareja[1]);
+            tuplas.put(pareja[0], pareja[1].replace("+", " "));
         }
         return tuplas;
    }

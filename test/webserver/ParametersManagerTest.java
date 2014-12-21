@@ -30,4 +30,14 @@ public class ParametersManagerTest {
         respuestaEsperada.put("pass", "alison");
         assertEquals(respuestaEsperada, respuestaCalculada);
     }
+    
+    @Test
+    public void testLoadParametrosEspacio() {
+        ParametersManager manager = new ParametersManager();
+        Map<String, String> respuestaCalculada = manager.load("nombre=alison+fernandez&pass=alison");
+        Map<String, String> respuestaEsperada = new HashMap<>();
+        respuestaEsperada.put("nombre", "alison fernandez");
+        respuestaEsperada.put("pass", "alison");
+        assertEquals(respuestaEsperada, respuestaCalculada);
+    }
 }
