@@ -23,7 +23,7 @@ public class RequestManager {
         request = request.trim();
         request = request.split("\n")[0];
         String[] requestLine = request.split(" ");
-        String method, resource = " ", version;
+        String method, resource = "index.html", version;
         if(requestLine.length > 3){
             method = requestLine[0];
             resource = requestLine[1];

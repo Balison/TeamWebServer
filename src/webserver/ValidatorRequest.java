@@ -7,7 +7,7 @@ package webserver;
  */
 public class ValidatorRequest {
     
-    private final String metodos[] = {"HEAD", "GET"};
+    private final String metodos[] = {"HEAD", "GET","POST"};
     private FileManager fileManager;
     
     public ValidatorRequest(FileManager manager){
@@ -16,6 +16,14 @@ public class ValidatorRequest {
 
     public int validateSimpleRequest(String method, String url) {
         if (method.equals("GET")) {
+            if (fileManager.findFile(url).exists()) {
+                return 200;
+            } else {
+                return 404;
+            }
+        }
+        if (method.equals("POST")) {
+            
             if (fileManager.findFile(url).exists()) {
                 return 200;
             } else {

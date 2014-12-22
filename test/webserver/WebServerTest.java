@@ -115,4 +115,40 @@ public class WebServerTest {
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
         assertEquals(expectedResponse, requestResponse);
     }
-}
+    @Test
+    public void testFullRequestPOST_OK() throws IOException {
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST / HTTP/1.0");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"), "POST");
+        assertEquals(expectedResponse, requestResponse);
+    }
+     @Test
+    public void testFullRequestPOST_NOT_FOUND() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /mundo.html HTTP/1.0");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"),404);
+        assertEquals(expectedResponse, requestResponse);
+    }
+    @Test
+    public void testSimpleRequestPOST_NOT_FOUND() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /mundo.html");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
+    public void testFullRequestPOST_BAD_PROTOCOL() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /index.html HTTP/1.2");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"), 400);
+        assertEquals(expectedResponse, requestResponse);
+    }
+    @Test
+    public void testSimpleRequestPOST_EMPTY_URL() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+  }
