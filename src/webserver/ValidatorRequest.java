@@ -7,7 +7,7 @@ package webserver;
  */
 public class ValidatorRequest {
     
-    private final String metodos[] = {"POST", "HEAD", "GET"};
+    private final String metodos[] = {"HEAD", "GET","POST"};
     private FileManager fileManager;
     
     public ValidatorRequest(FileManager manager){

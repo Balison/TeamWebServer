@@ -155,4 +155,12 @@ public class WebServerTest {
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
         assertEquals(expectedResponse, requestResponse);
     }
-}
+    
+    @Test
+    public void testSimpleRequestPOST_EMPTY_URL() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+  }
