@@ -28,6 +28,14 @@ public class ValidatorRequestTest {
     }
     
     @Test
+    public void testFullRequestPOST_OK(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateFullRequest("POST", "/", "HTTP/1.0");
+        assertEquals(200, statusResponse);
+    }
+    
+    @Test
     public void testFullRequestHEAD_NOT_FOUND(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
@@ -40,6 +48,14 @@ public class ValidatorRequestTest {
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
         int statusResponse = validator.validateFullRequest("GET", "/as.html", "HTTP/1.0");
+        assertEquals(404, statusResponse);
+    }
+    
+    @Test
+    public void testFullRequestPOST_NOT_FOUND(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateFullRequest("POST", "/as.html", "HTTP/1.0");
         assertEquals(404, statusResponse);
     }
     
@@ -68,6 +84,14 @@ public class ValidatorRequestTest {
     }
     
     @Test
+    public void testFullRequestPOST_EMPTY_URL(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateFullRequest("POST", "", "HTTP/1.0");
+        assertEquals(400, statusResponse);
+    }
+    
+    @Test
     public void testFullRequestHEAD_BAD_PROTOCOL(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
@@ -83,11 +107,27 @@ public class ValidatorRequestTest {
         assertEquals(400, statusResponse);
     }
     
-        @Test
+    @Test
+    public void testFullRequestPOST_BAD_PROTOCOL(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateFullRequest("POST", "/index.html", "HTTP/1.2");
+        assertEquals(400, statusResponse);
+    }
+    
+    @Test
     public void testSimpleRequestGET_OK(){
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
         int statusResponse = validator.validateSimpleRequest("GET", "/");
+        assertEquals(200, statusResponse);
+    }
+    
+    @Test
+    public void testSimpleRequestPOST_OK(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateSimpleRequest("POST", "/");
         assertEquals(200, statusResponse);
     }
     
@@ -112,6 +152,14 @@ public class ValidatorRequestTest {
         FileManager manager = new FileManager();
         ValidatorRequest validator = new ValidatorRequest(manager);
         int statusResponse = validator.validateSimpleRequest("GET", "/as.html");
+        assertEquals(404, statusResponse);
+    }
+    
+    @Test
+    public void testSimpleRequestPOST_NOT_FOUND(){
+        FileManager manager = new FileManager();
+        ValidatorRequest validator = new ValidatorRequest(manager);
+        int statusResponse = validator.validateSimpleRequest("POST", "/as.html");
         assertEquals(404, statusResponse);
     }
     

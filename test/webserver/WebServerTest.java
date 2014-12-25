@@ -29,6 +29,14 @@ public class WebServerTest {
     }
     
     @Test
+    public void testFullRequestPOST_OK() throws IOException {
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST / HTTP/1.0");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"), "POST");
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
     public void testFullRequestHEAD_NOT_FOUND() throws IOException{
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.responseRequest("HEAD /as.html HTTP/1.0");
@@ -40,6 +48,14 @@ public class WebServerTest {
     public void testFullRequestGET_NOT_FOUND() throws IOException{
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.responseRequest("GET /as.html HTTP/1.0");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"), 404);
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
+    public void testFullRequestPOST_NOT_FOUND() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /as.html HTTP/1.0");
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"), 404);
         assertEquals(expectedResponse, requestResponse);
     }
@@ -68,10 +84,26 @@ public class WebServerTest {
         assertEquals(expectedResponse, requestResponse);
     }
     
-        @Test
+    @Test
+    public void testFullRequestPOST_BAD_PROTOCOL() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /index.html HTTP/1.2");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"), 400);
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
     public void testSimpleRequestGET_OK() throws IOException {
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.responseRequest("GET /");
+        HttpResponse expectedResponse = new HttpResponse(new File("index.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
+    public void testSimpleRequestPOST_OK() throws IOException {
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /");
         HttpResponse expectedResponse = new HttpResponse(new File("index.html"));
         assertEquals(expectedResponse, requestResponse);
     }
@@ -96,6 +128,14 @@ public class WebServerTest {
     public void testSimpleRequestGET_NOT_FOUND() throws IOException{
         WebServer server = new WebServer();
         HttpResponse requestResponse = server.responseRequest("GET /as.html");
+        HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
+        assertEquals(expectedResponse, requestResponse);
+    }
+    
+    @Test
+    public void testSimpleRequestPOST_NOT_FOUND() throws IOException{
+        WebServer server = new WebServer();
+        HttpResponse requestResponse = server.responseRequest("POST /as.html");
         HttpResponse expectedResponse = new HttpResponse(new File("src/temp/error.html"));
         assertEquals(expectedResponse, requestResponse);
     }
